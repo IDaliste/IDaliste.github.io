@@ -1,0 +1,103 @@
+@font-face{
+	font-family:"Lato";
+	src:url("font/Lato-Light.ttf");
+}
+body{
+	margin:0;
+	font-family:"Lato","Calibri",sans-serif;
+	color: #383e42;
+	background-color: #f8f6f1;
+}
+
+header{
+	padding: 50px 0;
+}
+header nav ul{
+	list-style: none;
+	display: grid;
+	grid-template-columns: 70px 110px 110px;
+	justify-content: flex-start;
+}
+header nav a{	
+	text-decoration: none;
+	color: #000000;
+	padding-left: 3px;
+	border-left: solid 1px #000000;
+}
+#presentation{
+	display: grid;
+	justify-items: center;
+}
+#pres{
+	padding: 5%;
+}
+#moustache{
+	width: 30%;
+	padding-top: 20px;
+}
+#part1{
+	display: grid;
+	justify-items: center;
+}
+#part2{
+	display: grid;
+	justify-items: center;
+}
+#crea img{
+	width: 50%;
+	padding: 10% 0%;
+}
+#format{
+	padding: 10px 20px 10px 100px;
+}
+#pof{
+	display: grid;
+	justify-items: center;
+}
+#tiki{
+	width: 50%;
+	padding: 10px 0;
+}
+
+@media screen and (min-width: 1024px){
+	#presentation{
+		grid-template-columns: 65% 35%;
+		font-size: 1.5em;
+		margin: 5% 0;
+	}
+	#pres{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0% 5%;
+	}
+	h1{
+		margin: 2% 0;
+	}
+	h2{
+		margin: 2% 0;
+	}
+	p{
+		margin: 2% 0;
+	}
+	#moustache{
+		width: 70%;
+	}
+	#crea img{
+		width: 50%;
+		padding: 10% 0%;
+	}
+	#part1{
+		grid-template-columns: repeat(3,1fr);
+		justify-items: center;
+	}
+	#part2{
+		grid-template-columns: repeat(3,1fr);
+		justify-items: center;
+	}
+	#pof{
+		grid-template-columns: 60% 40%;
+		align-items: center;
+		margin:	10% 2%;
+	}
+}
