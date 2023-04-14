@@ -8,18 +8,28 @@
 		<link rel="stylesheet" href="style.css" type="text/css">
 		<link rel="icon" type="image/png" sizes="96x96"  href="img/Fav.png">
 		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="theme-color" content="#ffffff">
+		<meta name="theme-color" content="#ffffff"><script async src="https://www.googletagmanager.com/gtag/js?id=G-KQJT9Y1MZV"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-KQJT9Y1MZV');
+		</script>
 	</head>
 	<body>
 		<header>
-			<nav>
+			<div id="menu"></div>
+		</header>
+		<div id="depliage">
+			<nav id="navi">
 				<ul>
 					<li><a href='index.html'>Accueil</a></li>
 					<li><a href='creations.html'>Mes créations</a></li>
 					<li><a href='formation.html'>Ma formation</a></li>
 				</ul>
 			</nav>
-		</header>
+		</div>
 		<main id="presentation">
 			<div id="pres">
 				<h1>Character designer</h1>
@@ -28,5 +38,36 @@
 			</div>
 			<img src="img/Perso.png" alt="Création" id="moustache">
 		</main>
+		<script src="jquery-3.3.1.min.js"></script>
+		<script>
+			function tailleFenetre() {
+						$('#menu').css('visibility','hidden');
+						$('#depliage').height($('#navi').height()).addClass('ouvert');
+					}
+			$(document).ready(function() {
+				var taille = $(window).width();
+				if(taille>1024) {
+					tailleFenetre();
+				}
+				$('#menu').click(function(){
+					if($('#depliage').hasClass('ouvert')) {
+						$('#depliage').height(0).removeClass('ouvert');
+					}
+					else {
+						$('#depliage').height($('#navi').height()).addClass('ouvert');
+					}
+				});
+				$(window).resize(function() {
+					taille = $(window).width();
+					$('#depliage').height('0px').removeClass('ouvert');
+					if(taille>1024) {
+						tailleFenetre();
+					}
+					else {
+						$('#menu').css('visibility','visible');
+					}
+				});
+			});
+		</script>
 	</body>
 </html>

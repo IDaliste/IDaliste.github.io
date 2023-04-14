@@ -11,14 +11,17 @@
 	</head>
 	<body>
 		<header>
-			<nav>
-					<ul>
-						<li><a href='index.html'>Accueil</a></li>
-						<li><a href='creations.html'>Mes créations</a></li>
-						<li><a href='formation.html'>Ma formation</a></li>
-					</ul>
-			</nav>
+			<div id="menu"></div>
 		</header>
+		<div id="depliage">
+			<nav id="navi">
+				<ul>
+					<li><a href='index.html'>Accueil</a></li>
+					<li><a href='creations.html'>Mes créations</a></li>
+					<li><a href='formation.html'>Ma formation</a></li>
+				</ul>
+			</nav>
+		</div>
 		<main id="pof">
 			<div id="format">
 				<p>La section dans laquelle je me forme se nomme Teknika, c'est un bachelier en technique graphique au département des Sciences et technologies de la HEH durent 3 années.</p>
@@ -28,5 +31,36 @@
 			</div>
 			<img src="img/teknika_LogoFilaire_portrait.svg" alt="Teknika" id="tiki">
 		</main>
+		<script src="jquery-3.3.1.min.js"></script>
+		<script>
+			function tailleFenetre() {
+						$('#menu').css('visibility','hidden');
+						$('#depliage').height($('#navi').height()).addClass('ouvert');
+					}
+			$(document).ready(function() {
+				var taille = $(window).width();
+				if(taille>1024) {
+					tailleFenetre();
+				}
+				$('#menu').click(function(){
+					if($('#depliage').hasClass('ouvert')) {
+						$('#depliage').height(0).removeClass('ouvert');
+					}
+					else {
+						$('#depliage').height($('#navi').height()).addClass('ouvert');
+					}
+				});
+				$(window).resize(function() {
+					taille = $(window).width();
+					$('#depliage').height('0px').removeClass('ouvert');
+					if(taille>1024) {
+						tailleFenetre();
+					}
+					else {
+						$('#menu').css('visibility','visible');
+					}
+				});
+			});
+		</script>
 	</body>
 </html>

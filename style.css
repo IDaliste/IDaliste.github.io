@@ -10,20 +10,50 @@ body{
 }
 
 header{
+	display: flex; 
+	flex-flow: row nowrap; 
+	justify-content: space-between;
 	padding: 50px 0;
 }
-header nav ul{
-	list-style: none;
-	display: grid;
-	grid-template-columns: 70px 110px 110px;
-	justify-content: flex-start;
+#menu{ 
+	height:40px; 
+	width:40px; 
+	border:#000000 1px solid;
+	background-image:url(menu.svg); 
+	background-position:center center; 
+	background-size:30px 30px; 
+	background-repeat:no-repeat; 
+	cursor:pointer; 
 }
-header nav a{	
+
+#menu:hover, #menu:focus { background-color:#c9c3b3; }
+#menu:active { background-color:#ccc; }
+
+#depliage{
+	height:0;
+	overflow: hidden;
+	transition-duration:600ms; 
+}
+#navi{  
+	display:flex; 
+	flex-flow:column nowrap;
+}
+#navi ul{
+	list-style: none;
+}
+#navi a{
+	padding-left: 3px;
 	text-decoration: none;
 	color: #000000;
-	padding-left: 3px;
-	border-left: solid 1px #000000;
+	display:block;
+	color:#000000; 
+	text-decoration:none; 
+	padding:6px;
 }
+
+#navi a:hover, #navi a:focus { background-color:#ffffff; }
+#navi a:active { background-color:#ccc; }
+
 #presentation{
 	display: grid;
 	justify-items: center;
@@ -60,6 +90,25 @@ header nav a{
 }
 
 @media screen and (min-width: 1024px){
+	#navi{ 
+		grid-template-columns: 65% 35%;
+		margin: 5% 0;
+	}
+	#navi a{ 
+		border-left: solid 1px #383e42;
+	}
+	#navi ul{
+	display: grid;
+	grid-template-columns: 70px 110px 110px;
+	justify-content: flex-start;
+	}
+	#depliage{
+		height:auto;
+		overflow: visible;
+	}
+	#menu{ 
+		display:none; 
+	}
 	#presentation{
 		grid-template-columns: 65% 35%;
 		font-size: 1.5em;

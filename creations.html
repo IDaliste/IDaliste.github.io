@@ -11,14 +11,17 @@
 	</head>
 	<body>
 		<header>
-			<nav>
+			<div id="menu"></div>
+		</header>
+		<div id="depliage">
+			<nav id="navi">
 				<ul>
 					<li><a href='index.html'>Accueil</a></li>
 					<li><a href='creations.html'>Mes créations</a></li>
 					<li><a href='formation.html'>Ma formation</a></li>
 				</ul>
 			</nav>
-		</header>
+		</div>
 		<main id="crea">
 			<div id="part1">
 				<img src="img/Guerriere.webp" alt="guerriere" id="guerriere">
@@ -31,5 +34,36 @@
 				<img src="img/mom.webp" alt="mere" id="mom">
 			</div>
 		</main>
+		<script src="jquery-3.3.1.min.js"></script>
+		<script>
+			function tailleFenetre() {
+						$('#menu').css('visibility','hidden');
+						$('#depliage').height($('#navi').height()).addClass('ouvert');
+					}
+			$(document).ready(function() {
+				var taille = $(window).width();
+				if(taille>1024) {
+					tailleFenetre();
+				}
+				$('#menu').click(function(){
+					if($('#depliage').hasClass('ouvert')) {
+						$('#depliage').height(0).removeClass('ouvert');
+					}
+					else {
+						$('#depliage').height($('#navi').height()).addClass('ouvert');
+					}
+				});
+				$(window).resize(function() {
+					taille = $(window).width();
+					$('#depliage').height('0px').removeClass('ouvert');
+					if(taille>1024) {
+						tailleFenetre();
+					}
+					else {
+						$('#menu').css('visibility','visible');
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
