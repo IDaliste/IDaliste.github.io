@@ -81,13 +81,25 @@ header{
 	padding: 10% 0%;
 }
 #format{
-	padding: 10px 20px 10px 100px;
+	padding: 0 30px;
 }
 #pof{
+	display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+#tiki{
+	width: 50%;
+	padding: 10px 0;
+}
+#format_2{
+	padding: 0 30px;
+}
+#pif{
 	display: grid;
 	justify-items: center;
 }
-#tiki{
+#toko{
 	width: 50%;
 	padding: 10px 0;
 }
@@ -95,7 +107,7 @@ header{
 @media screen and (min-width: 1024px){
 	#graph{
 	background-image: url("elem_graph.svg");
-	background-position: center left;
+	background-position: top left;
 	background-repeat:no-repeat;
 	background-size: 1000px;
 	}	
@@ -156,7 +168,20 @@ header{
 		grid-template-columns: repeat(3,1fr);
 		justify-items: center;
 	}
+	#format{
+		padding: 10px 20px 10px 100px;
+}	
 	#pof{
+		display: grid;
+		grid-template-columns: 40% 60%;
+		align-items: center;
+		padding: 0 0 0 10%;
+		margin:	10% 2%;
+	}
+	#format_2{
+		padding: 10px 20px 10px 100px;
+	}	
+	#pif{
 		grid-template-columns: 60% 40%;
 		align-items: center;
 		margin:	10% 2%;
